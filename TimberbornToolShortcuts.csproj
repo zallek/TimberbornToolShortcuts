@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <AssemblyName>TimberbornToolShortcuts</AssemblyName>
+    <AssemblyName>Timberborn.ToolShortcuts</AssemblyName>
     <Description>Tool shortcurs for Timberborn</Description>
     <Version>0.0.1</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -16,14 +16,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="UnityEngine">
-      <HintPath>../libs/UnityEngine.dll</HintPath>
+    <Reference Include="Bindito.Core">
+      <HintPath>../libs/Bindito.Core.dll</HintPath>
+    </Reference>
+        <Reference Include="Timberborn.InputSystem">
+      <HintPath>../libs/Timberborn.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Timberborn.ToolSystem">
+      <HintPath>../libs/Timberborn.ToolSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>../libs/Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>../libs/UnityEngine.CoreModule.dll</HintPath>
     </Reference>
-    <Reference Include="Timberborn.InputSystem">
-      <HintPath>../libs/Timberborn.InputSystem.dll</HintPath>
+    <Reference Include="UnityEngine">
+      <HintPath>../libs/UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
 

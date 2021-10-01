@@ -5,6 +5,15 @@ namespace ToolShortcuts
 {
     class InputServicePatch
     {
+        [HarmonyPatch(typeof(InputService), "InjectDependencies")]
+        public static class PatchInjectDependencies
+        {
+            private static void Postfix(KeyboardController keyboardController)
+            {
+                Plugin.KeyboardController = keyboardController;
+            }
+        }
+
         [HarmonyPatch(typeof(InputService), "ChangeGameSpeed", MethodType.Getter)]
         public static class PatchChangeGameSpeed
         {
