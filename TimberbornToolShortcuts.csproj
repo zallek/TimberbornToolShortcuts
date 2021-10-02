@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>Timberborn.ToolShortcuts</AssemblyName>
     <Description>Tool shortcurs for Timberborn</Description>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
