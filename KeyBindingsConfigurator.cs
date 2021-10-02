@@ -5,6 +5,12 @@ using UnityEngine.InputSystem.Controls;
 namespace ToolShortcuts {
     class KeyBindingsConfigurator {
         public static void ConfigureKeyBindings() {
+            KeyBindings.GroupTools = new Dictionary<ToolGroupName, KeyControl> {
+                { ToolGroupName.TreeCutting, KeyNameToKeyControl("g") },
+                { ToolGroupName.FieldsPlanting, KeyNameToKeyControl("f") },
+                { ToolGroupName.ForestryPlanting, KeyNameToKeyControl("t") },
+                { ToolGroupName.Demolishing, KeyNameToKeyControl("x") },
+            };
             KeyBindings.Tools = new List<KeyControl> {
                 KeyNameToKeyControl("1"),
                 KeyNameToKeyControl("2"),

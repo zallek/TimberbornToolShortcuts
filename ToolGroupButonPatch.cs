@@ -1,7 +1,7 @@
 using HarmonyLib;
 using System.Collections.Generic;
 using Timberborn.ToolSystem;
-using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.UIElements;
 
 namespace ToolShortcuts
@@ -11,20 +11,28 @@ namespace ToolShortcuts
         [HarmonyPatch(typeof(ToolGroupButton), "PostLoad")]
         public static class PatchPostLoad
         {
-            private static void Postfix(List<ToolButton> ____toolButtons)
+            private static void Postfix(ToolGroupButton __instance, ToolGroup ____toolGroup, List<ToolButton> ____toolButtons)
             {
-                for (int i = 0; i < ____toolButtons.Count && i < 10; i++)
-                {
-                    Label keyBindingLabel = new Label(KeyBindings.Tools[i].name);
-                    keyBindingLabel.style.position = Position.Absolute;
-                    keyBindingLabel.style.top = 4;
-                    keyBindingLabel.style.left = 0;
-                    keyBindingLabel.style.width = 20;
-                    keyBindingLabel.style.backgroundColor = new Color(0f, 0f, 0f, 0f);
-                    keyBindingLabel.style.color = new Color(0.75f, 0.65f, 0.44f);
-                    keyBindingLabel.style.fontSize = 10;
+                DisplayGroupBindingLabel(__instance.Root, ____toolGroup);
+                DisplayGroupButtonsLabels(____toolButtons);
+            }
 
-                    ____toolButtons[i].Root.Add(keyBindingLabel);
+            private static void DisplayGroupBindingLabel(VisualElement root, ToolGroup toolGroup) {
+                ToolGroupName? groupName = ToolGroupNameHelper.FromNameLockey(toolGroup.DisplayNameLocKey);
+                if (!groupName.HasValue) return;
+
+                KeyControl keyControl = KeyBindings.GroupTools.GetValueOrDefault(groupName.Value, null);
+                if (keyControl == null) return;
+
+                KeyBindingLabel label = new KeyBindingLabel(keyControl.displayName);
+                label.style.left = 6;
+                root.Add(label);
+            }
+
+            private static void DisplayGroupButtonsLabels(List<ToolButton> toolButtons) {
+                for (int i = 0; i < toolButtons.Count && i < KeyBindings.Tools.Count; i++)
+                {
+                    toolButtons[i].Root.Add(new KeyBindingLabel(KeyBindings.Tools[i].displayName));
                 }
             }
         }

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using Timberborn.InputSystem;
 
 namespace ToolShortcuts
@@ -7,7 +9,8 @@ namespace ToolShortcuts
     {
         private KeyboardController _keyboard;
 
-        public ExtendedInputService(KeyboardController keyboardController) {
+        public ExtendedInputService(KeyboardController keyboardController)
+        {
             _keyboard = keyboardController;
             KeyBindingsConfigurator.ConfigureKeyBindings();
         }
@@ -18,10 +21,29 @@ namespace ToolShortcuts
             {
                 if (!_keyboard.IsKeyHeld(Key.LeftShift))
                 {
-                    for (int i = 0; i < KeyBindings.Tools.Count; i++) {
+                    for (int i = 0; i < KeyBindings.Tools.Count; i++)
+                    {
                         if (_keyboard.IsKeyDown(KeyBindings.Tools[i].keyCode))
                         {
                             return i;
+                        }
+                    }
+                }
+                return null;
+            }
+        }
+
+        public ToolGroupName? SwitchToolGroup
+        {
+            get
+            {
+                if (!_keyboard.IsKeyHeld(Key.LeftShift))
+                {
+                    foreach(KeyValuePair<ToolGroupName, KeyControl> entry in KeyBindings.GroupTools)
+                    {
+                        if (_keyboard.IsKeyDown(entry.Value.keyCode))
+                        {
+                            return entry.Key;
                         }
                     }
                 }

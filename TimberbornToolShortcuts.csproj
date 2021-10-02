@@ -22,6 +22,9 @@
     <Reference Include="Timberborn.ToolSystem">
       <HintPath>../libs/Timberborn.ToolSystem.dll</HintPath>
     </Reference>
+    <Reference Include="Timberborn.SingletonSystem">
+      <HintPath>../libs/Timberborn.SingletonSystem.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>../libs/Unity.InputSystem.dll</HintPath>
     </Reference>

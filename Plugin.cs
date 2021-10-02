@@ -3,7 +3,6 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections.Generic;
 using System.Reflection;
-using Timberborn.InputSystem;
 using Timberborn.ToolSystem;
 
 namespace ToolShortcuts
