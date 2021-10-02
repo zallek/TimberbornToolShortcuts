@@ -12,9 +12,9 @@ namespace ToolShortcuts
             private static void Postfix(ref bool? __result, ToolManager __instance)
             {
                 int? toolNum = Plugin.ExtendedInputService.SwitchTool;
-                if (toolNum.HasValue && Plugin.ActiveToolGroupButtons != null && toolNum.Value <= Plugin.ActiveToolGroupButtons.Count()) {
+                if (toolNum.HasValue && Plugin.ActiveToolGroupButtons != null && toolNum.Value < Plugin.ActiveToolGroupButtons.Count()) {
 
-                    ToolButton btn = Plugin.ActiveToolGroupButtons.ElementAt(toolNum.Value - 1);
+                    ToolButton btn = Plugin.ActiveToolGroupButtons.ElementAt(toolNum.Value);
                     __instance.SwitchTool(btn.Tool);
                     __result = true;
                 } 

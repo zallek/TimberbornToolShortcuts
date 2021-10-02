@@ -15,8 +15,7 @@ namespace ToolShortcuts
             {
                 for (int i = 0; i < ____toolButtons.Count && i < 10; i++)
                 {
-                    string keyBinding = i == 9 ? "0" : $"{i + 1}";
-                    Label keyBindingLabel = new Label(keyBinding);
+                    Label keyBindingLabel = new Label(KeyBindings.Tools[i].name);
                     keyBindingLabel.style.position = Position.Absolute;
                     keyBindingLabel.style.top = 4;
                     keyBindingLabel.style.left = 0;

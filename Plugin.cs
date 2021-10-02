@@ -12,8 +12,7 @@ namespace ToolShortcuts
     public class Plugin : BaseUnityPlugin
     {
         internal static ManualLogSource Log;
-        internal static ExtendedInputService ExtendedInputService = new ExtendedInputService();
-        internal static KeyboardController KeyboardController;
+        internal static ExtendedInputService ExtendedInputService;
         internal static List<ToolButton> ActiveToolGroupButtons;
 
         private void Awake()

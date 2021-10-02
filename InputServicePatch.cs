@@ -10,7 +10,7 @@ namespace ToolShortcuts
         {
             private static void Postfix(KeyboardController keyboardController)
             {
-                Plugin.KeyboardController = keyboardController;
+                Plugin.ExtendedInputService = new ExtendedInputService(keyboardController);
             }
         }
 
