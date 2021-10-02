@@ -28,6 +28,9 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>../libs/UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>../libs/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>../libs/UnityEngine.dll</HintPath>
     </Reference>
