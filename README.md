@@ -2,7 +2,7 @@
 
 Click on a tool group, then press key 1, 2, 3, ... to select the right tool.
 
-![Demo](./demo.gif)
+![Demo](https://github.com/zallek/TimberbornToolShortcuts/raw/main/demo.gif)
 
 Note: Time speed shortcuts have been reassigned to ALT-1, ALT-2, ALT-3
 
