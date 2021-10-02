@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>Timberborn.ToolShortcuts</AssemblyName>
     <Description>Tool shortcurs for Timberborn</Description>
-    <Version>0.0.1</Version>
+    <Version>0.1.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
@@ -16,10 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Bindito.Core">
-      <HintPath>../libs/Bindito.Core.dll</HintPath>
-    </Reference>
-        <Reference Include="Timberborn.InputSystem">
+    <Reference Include="Timberborn.InputSystem">
       <HintPath>../libs/Timberborn.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Timberborn.ToolSystem">
@@ -39,4 +36,8 @@
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="mkdir $(ProjectDir)\dist\ToolShortcuts&#xD;&#xA;del $(ProjectDir)\dist\ToolShortcuts /q&#xD;&#xA;copy $(TargetPath) $(ProjectDir)\dist\ToolShortcuts\&#xD;&#xA;copy $(ProjectDir)thunderstore\* $(ProjectDir)\dist\ToolShortcuts&#xD;&#xA;copy $(ProjectDir)README.md $(ProjectDir)\dist\ToolShortcuts&#xD;&#xA;del $(ProjectDir)\dist\ToolShortcuts.zip&#xD;&#xA;powershell Compress-Archive $(ProjectDir)\dist\* $(ProjectDir)\dist\ToolShortcuts.zip"/>
+  </Target>
 </Project>

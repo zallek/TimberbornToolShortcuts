@@ -8,10 +8,8 @@ Note: Time speed shortcuts have been reassigned to ALT-1, ALT-2, ALT-3
 
 ## Requirements
 
-This mod is built with `BepInEx`.
-Installation guide [here](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
+- [BepInExPack Timberborn](https://timberborn.thunderstore.io/package/BepInEx/BepInExPack_Timberborn/)
 
 ## Installation
 
-- [Download](https://github.com/zallek/TimberbornToolShortcuts/releases) the latest release.
-- Place `Timberborn.ToolShortcuts.dll` in your BepinEx plugin folder.
+- Decompress archivre `ToolShortcuts.zip` in your BepinEx plugin folder.
