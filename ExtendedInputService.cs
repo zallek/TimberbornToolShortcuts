@@ -23,7 +23,7 @@ namespace ToolShortcuts
                 {
                     for (int i = 0; i < KeyBindings.Tools.Count; i++)
                     {
-                        if (_keyboard.IsKeyDown(KeyBindings.Tools[i].keyCode))
+                        if (KeyBindings.Tools[i] != null && _keyboard.IsKeyDown(KeyBindings.Tools[i].keyCode))
                         {
                             return i;
                         }
@@ -41,7 +41,7 @@ namespace ToolShortcuts
                 {
                     foreach (KeyValuePair<ToolGroupName, KeyControl> entry in KeyBindings.GroupTools)
                     {
-                        if (_keyboard.IsKeyDown(entry.Value.keyCode))
+                        if (entry.Value != null && _keyboard.IsKeyDown(entry.Value.keyCode))
                         {
                             return entry.Key;
                         }

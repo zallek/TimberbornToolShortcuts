@@ -1,10 +1,18 @@
 # Tool shortcuts for Timberborn
 
-Click on a tool group, then press key 1, 2, 3, ... to select the right tool.
+Add key bindinds on the bottom tool bar
+
+Default config:
+- G: Open Tree Cutting tools
+- F: Open Field Planting tools
+- T: Open Forestry Planting tools
+- X: Open Demolishing tools
+- 1, 2, 3, ...10: Select tool
+
+Note: Time speed controls have been reassigned to ALT-1, ALT-2, ALT-3
 
 ![Demo](https://github.com/zallek/TimberbornToolShortcuts/raw/main/demo.gif)
 
-Note: Time speed shortcuts have been reassigned to ALT-1, ALT-2, ALT-3
 
 ## Requirements
 
@@ -12,4 +20,8 @@ Note: Time speed shortcuts have been reassigned to ALT-1, ALT-2, ALT-3
 
 ## Installation
 
-- Decompress archive in your BepinEx plugin folder.
+- Decompress the zip archive in your plugins folder `BepInEx\plugins`.
+
+## Configuration
+
+- Add or change key bindings using the plugin configuration file in `BepInEx\config`.

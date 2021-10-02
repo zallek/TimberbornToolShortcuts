@@ -34,7 +34,10 @@ namespace ToolShortcuts
             {
                 for (int i = 0; i < toolButtons.Count && i < KeyBindings.Tools.Count; i++)
                 {
-                    toolButtons[i].Root.Add(new KeyBindingLabel(KeyBindings.Tools[i].displayName));
+                    KeyControl keyControl = KeyBindings.Tools[i];
+                    if (keyControl == null) continue;
+
+                    toolButtons[i].Root.Add(new KeyBindingLabel(keyControl.displayName));
                 }
             }
         }

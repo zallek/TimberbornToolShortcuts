@@ -7,7 +7,7 @@ using Timberborn.ToolSystem;
 
 namespace ToolShortcuts
 {
-    [BepInPlugin("com.zallek.Timberborn.ToolShortcuts", "Tool Shortcuts", "0.2.1")]
+    [BepInPlugin("Timberborn.ToolShortcuts", "Tool Shortcuts", "0.2.1")]
     public class Plugin : BaseUnityPlugin
     {
         internal static ManualLogSource Log;
@@ -17,6 +17,9 @@ namespace ToolShortcuts
         private void Awake()
         {
             Log = base.Logger;
+
+            KeyBindingsConfig.Bind(Config);
+
             Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
         }
     }
