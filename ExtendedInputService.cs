@@ -39,7 +39,7 @@ namespace ToolShortcuts
             {
                 if (!_keyboard.IsKeyHeld(Key.LeftShift))
                 {
-                    foreach(KeyValuePair<ToolGroupName, KeyControl> entry in KeyBindings.GroupTools)
+                    foreach (KeyValuePair<ToolGroupName, KeyControl> entry in KeyBindings.GroupTools)
                     {
                         if (_keyboard.IsKeyDown(entry.Value.keyCode))
                         {

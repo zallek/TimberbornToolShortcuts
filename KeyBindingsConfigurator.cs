@@ -2,9 +2,12 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-namespace ToolShortcuts {
-    class KeyBindingsConfigurator {
-        public static void ConfigureKeyBindings() {
+namespace ToolShortcuts
+{
+    class KeyBindingsConfigurator
+    {
+        public static void ConfigureKeyBindings()
+        {
             KeyBindings.GroupTools = new Dictionary<ToolGroupName, KeyControl> {
                 { ToolGroupName.TreeCutting, KeyNameToKeyControl("g") },
                 { ToolGroupName.FieldsPlanting, KeyNameToKeyControl("f") },
@@ -25,9 +28,10 @@ namespace ToolShortcuts {
             };
         }
 
-        private static KeyControl KeyNameToKeyControl(string keyName) {
-            return (KeyControl) Keyboard.current[keyName];
+        private static KeyControl KeyNameToKeyControl(string keyName)
+        {
+            return (KeyControl)Keyboard.current[keyName];
         }
     }
-    
+
 }

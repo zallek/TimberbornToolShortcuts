@@ -17,7 +17,8 @@ namespace ToolShortcuts
                 DisplayGroupButtonsLabels(____toolButtons);
             }
 
-            private static void DisplayGroupBindingLabel(VisualElement root, ToolGroup toolGroup) {
+            private static void DisplayGroupBindingLabel(VisualElement root, ToolGroup toolGroup)
+            {
                 ToolGroupName? groupName = ToolGroupNameHelper.FromNameLockey(toolGroup.DisplayNameLocKey);
                 if (!groupName.HasValue) return;
 
@@ -29,7 +30,8 @@ namespace ToolShortcuts
                 root.Add(label);
             }
 
-            private static void DisplayGroupButtonsLabels(List<ToolButton> toolButtons) {
+            private static void DisplayGroupButtonsLabels(List<ToolButton> toolButtons)
+            {
                 for (int i = 0; i < toolButtons.Count && i < KeyBindings.Tools.Count; i++)
                 {
                     toolButtons[i].Root.Add(new KeyBindingLabel(KeyBindings.Tools[i].displayName));

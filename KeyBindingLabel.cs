@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ToolShortcuts {
-    class KeyBindingLabel: Label {
-        public KeyBindingLabel(string keyBindingText) {
+namespace ToolShortcuts
+{
+    class KeyBindingLabel : Label
+    {
+        public KeyBindingLabel(string keyBindingText)
+        {
             text = keyBindingText;
             style.position = Position.Absolute;
             style.top = 4;

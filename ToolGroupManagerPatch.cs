@@ -22,7 +22,8 @@ namespace ToolShortcuts
         {
             private static void Postfix(ToolGroup toolGroup, ToolGroupManager __instance, InputService ____inputService)
             {
-                if (toolGroup == null) {
+                if (toolGroup == null)
+                {
                     ____inputService.AddInputProcessor(__instance);
                 }
             }
@@ -35,24 +36,36 @@ namespace ToolShortcuts
             {
                 if (Plugin.ExtendedInputService.SwitchToolGroup.HasValue)
                 {
-                    SwitchToolGroup(Plugin.ExtendedInputService.SwitchToolGroup.Value, __instance, ____toolManager);
-                    __result = true;
+                    if (SwitchToolGroup(Plugin.ExtendedInputService.SwitchToolGroup.Value, __instance, ____toolManager))
+                    {
+                        __result = true;
+                    }
                 }
             }
 
-            private static void SwitchToolGroup(ToolGroupName toolGroupName, ToolGroupManager instance, ToolManager toolManager)
+            private static bool SwitchToolGroup(ToolGroupName toolGroupName, ToolGroupManager instance, ToolManager toolManager)
             {
-                ToolButtonService toolButtonService = (ToolButtonService) typeof(ToolManager).GetField("_toolButtonService", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(toolManager);
-                List<ToolGroupButton> toolGroupButtons = (List<ToolGroupButton>) typeof(ToolButtonService).GetField("_toolGroupButtons", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(toolButtonService);
+                ToolButtonService toolButtonService = (ToolButtonService)typeof(ToolManager).GetField("_toolButtonService", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(toolManager);
+                List<ToolGroupButton> toolGroupButtons = (List<ToolGroupButton>)typeof(ToolButtonService).GetField("_toolGroupButtons", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(toolButtonService);
 
-                foreach (ToolGroupButton groupBtn in toolGroupButtons) {
-                    ToolGroup toolGroup = (ToolGroup) typeof(ToolGroupButton).GetField("_toolGroup", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(groupBtn);
+                foreach (ToolGroupButton groupBtn in toolGroupButtons)
+                {
+                    ToolGroup toolGroup = (ToolGroup)typeof(ToolGroupButton).GetField("_toolGroup", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(groupBtn);
 
-                    if (ToolGroupNameHelper.FromNameLockey(toolGroup.DisplayNameLocKey) == toolGroupName) {
-                        instance.SwitchToolGroup(toolGroup);
-                        break;
+                    if (ToolGroupNameHelper.FromNameLockey(toolGroup.DisplayNameLocKey) == toolGroupName)
+                    {
+                        if (instance.ActiveToolGroup == toolGroup)
+                        {
+                            instance.CloseToolGroup();
+                        }
+                        else
+                        {
+                            instance.SwitchToolGroup(toolGroup);
+                        }
+                        return true;
                     }
                 }
+                return false;
             }
         }
     }

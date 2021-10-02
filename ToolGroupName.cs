@@ -1,5 +1,7 @@
-namespace ToolShortcuts {
-    public enum ToolGroupName {
+namespace ToolShortcuts
+{
+    public enum ToolGroupName
+    {
         TreeCutting,
         FieldsPlanting,
         ForestryPlanting,
@@ -24,9 +26,12 @@ namespace ToolShortcuts {
     }
 
 
-    class ToolGroupNameHelper {
-        public static ToolGroupName? FromNameLockey(string nameLockey) {
-            switch (nameLockey) {
+    class ToolGroupNameHelper
+    {
+        public static ToolGroupName? FromNameLockey(string nameLockey)
+        {
+            switch (nameLockey)
+            {
                 case "ToolGroups.TreeCutting": return ToolGroupName.TreeCutting;
                 case "ToolGroups.FieldsPlanting": return ToolGroupName.FieldsPlanting;
                 case "ToolGroups.ForestryPlanting": return ToolGroupName.ForestryPlanting;
