@@ -38,6 +38,6 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="mkdir $(ProjectDir)\dist\ToolShortcuts&#xD;&#xA;del $(ProjectDir)\dist\ToolShortcuts /q&#xD;&#xA;copy $(TargetPath) $(ProjectDir)\dist\ToolShortcuts\&#xD;&#xA;copy $(ProjectDir)thunderstore\* $(ProjectDir)\dist\ToolShortcuts&#xD;&#xA;copy $(ProjectDir)README.md $(ProjectDir)\dist\ToolShortcuts&#xD;&#xA;del $(ProjectDir)\dist\ToolShortcuts.zip&#xD;&#xA;powershell Compress-Archive $(ProjectDir)\dist\* $(ProjectDir)\dist\ToolShortcuts.zip"/>
+    <Exec Command="mkdir $(ProjectDir)\dist\ToolShortcuts&#xD;&#xA;del $(ProjectDir)\dist\ToolShortcuts /q&#xD;&#xA;copy $(TargetPath) $(ProjectDir)\dist\ToolShortcuts\&#xD;&#xA;copy $(ProjectDir)thunderstore\* $(ProjectDir)\dist\ToolShortcuts&#xD;&#xA;copy $(ProjectDir)README.md $(ProjectDir)\dist\ToolShortcuts&#xD;&#xA;del $(ProjectDir)\dist\ToolShortcuts.zip&#xD;&#xA;powershell Compress-Archive $(ProjectDir)\dist\ToolShortcuts\* $(ProjectDir)\dist\ToolShortcuts.zip"/>
   </Target>
 </Project>

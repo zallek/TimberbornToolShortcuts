@@ -12,4 +12,4 @@ Note: Time speed shortcuts have been reassigned to ALT-1, ALT-2, ALT-3
 
 ## Installation
 
-- Decompress archivre `ToolShortcuts.zip` in your BepinEx plugin folder.
+- Decompress archive in your BepinEx plugin folder.
