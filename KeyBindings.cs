@@ -1,15 +1,25 @@
 using BepInEx.Configuration;
 using System.Collections.Generic;
+using Timberborn.SingletonSystem;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 namespace ToolShortcuts
 {
-    class KeyBindingsConfigurator
+    public class KeyBindings : IInitializableSingleton
     {
-        public static void ConfigureKeyBindings()
+        public Dictionary<ToolGroupName, KeyControl> GroupTools;
+
+        public List<KeyControl> Tools;
+
+        public KeyBindings()
         {
-            KeyBindings.GroupTools = new Dictionary<ToolGroupName, KeyControl> {
+            Plugin.KeyBindings = this;
+        }
+
+        public void Initialize()
+        {
+            GroupTools = new Dictionary<ToolGroupName, KeyControl> {
                 { ToolGroupName.TreeCutting, ConfigEntryToKeyControl(KeyBindingsConfig.treeCuttingGroupTool) },
                 { ToolGroupName.FieldsPlanting, ConfigEntryToKeyControl(KeyBindingsConfig.fieldsPlantingGroupTool) },
                 { ToolGroupName.ForestryPlanting, ConfigEntryToKeyControl(KeyBindingsConfig.forestryPlantingGroupTool) },
@@ -32,7 +42,8 @@ namespace ToolShortcuts
                 { ToolGroupName.MapEditor, ConfigEntryToKeyControl(KeyBindingsConfig.mapEditorGroupTool) },
                 { ToolGroupName.Ruins, ConfigEntryToKeyControl(KeyBindingsConfig.ruinsGroupTool) },
             };
-            KeyBindings.Tools = new List<KeyControl> {
+
+            Tools = new List<KeyControl> {
                 ConfigEntryToKeyControl(KeyBindingsConfig.tool1),
                 ConfigEntryToKeyControl(KeyBindingsConfig.tool2),
                 ConfigEntryToKeyControl(KeyBindingsConfig.tool3),

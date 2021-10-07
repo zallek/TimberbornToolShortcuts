@@ -16,14 +16,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Bindito.Core">
+      <HintPath>../libs/Bindito.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Timberborn.InputSystem">
       <HintPath>../libs/Timberborn.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Timberborn.MasterScene">
+      <HintPath>../libs/Timberborn.MasterScene.dll</HintPath>
+    </Reference>
+    <Reference Include="Timberborn.SingletonSystem">
+      <HintPath>../libs/Timberborn.SingletonSystem.dll</HintPath>
     </Reference>
     <Reference Include="Timberborn.ToolSystem">
       <HintPath>../libs/Timberborn.ToolSystem.dll</HintPath>
     </Reference>
-    <Reference Include="Timberborn.SingletonSystem">
-      <HintPath>../libs/Timberborn.SingletonSystem.dll</HintPath>
+    <Reference Include="UnityEngine">
+      <HintPath>../libs/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>../libs/Unity.InputSystem.dll</HintPath>
@@ -33,9 +42,6 @@
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
       <HintPath>../libs/UnityEngine.UIElementsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>../libs/UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
 

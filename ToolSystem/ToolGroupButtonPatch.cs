@@ -22,7 +22,7 @@ namespace ToolShortcuts
                 ToolGroupName? groupName = ToolGroupNameHelper.FromNameLockey(toolGroup.DisplayNameLocKey);
                 if (!groupName.HasValue) return;
 
-                KeyControl keyControl = KeyBindings.GroupTools.GetValueOrDefault(groupName.Value, null);
+                KeyControl keyControl = Plugin.KeyBindings.GroupTools.GetValueOrDefault(groupName.Value, null);
                 if (keyControl == null) return;
 
                 KeyBindingLabel label = new KeyBindingLabel(keyControl.displayName);
@@ -32,9 +32,9 @@ namespace ToolShortcuts
 
             private static void DisplayGroupButtonsLabels(List<ToolButton> toolButtons)
             {
-                for (int i = 0; i < toolButtons.Count && i < KeyBindings.Tools.Count; i++)
+                for (int i = 0; i < toolButtons.Count && i < Plugin.KeyBindings.Tools.Count; i++)
                 {
-                    KeyControl keyControl = KeyBindings.Tools[i];
+                    KeyControl keyControl = Plugin.KeyBindings.Tools[i];
                     if (keyControl == null) continue;
 
                     toolButtons[i].Root.Add(new KeyBindingLabel(keyControl.displayName));
