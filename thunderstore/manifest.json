@@ -4,6 +4,6 @@
     "website_url": "https://github.com/zallek/TimberbornToolShortcuts",
     "description": "Add key bindinds for the bottom tool bar",
     "dependencies": [
-        "BepInEx-BepInExPack_Timberborn-5.4.19.0"
+        "BepInEx-BepInExPack_Timberborn-5.4.19"
     ]
 }
