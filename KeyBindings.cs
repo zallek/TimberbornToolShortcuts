@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Controls;
 
 namespace ToolShortcuts
 {
-    public class KeyBindings : IInitializableSingleton
+    public class KeyBindings : ILoadableSingleton
     {
         public Dictionary<ToolGroupName, KeyControl> GroupTools;
 
@@ -17,7 +17,7 @@ namespace ToolShortcuts
             Plugin.KeyBindings = this;
         }
 
-        public void Initialize()
+        public void Load()
         {
             GroupTools = new Dictionary<ToolGroupName, KeyControl> {
                 { ToolGroupName.TreeCutting, ConfigEntryToKeyControl(KeyBindingsConfig.treeCuttingGroupTool) },
